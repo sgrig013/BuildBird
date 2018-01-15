@@ -38,7 +38,7 @@ namespace ArchieBirds.Models
         /// If the bird's skeleton is incomplete but we have one wing, 
         /// then we can estimate the wingspan as double the one wing’s span plus a 6th of the bird’s length.
         /// If the bird's skeleton is missing both wings then we can't estimate its wingspan 
-        /// and must return an appropriate value indicating this. (-1 ?)
+        /// and must return an appropriate value indicating this. 
         /// </summary>
         public double Wingspan
         {
@@ -70,6 +70,12 @@ namespace ArchieBirds.Models
         [Range(0, 1, ErrorMessage = "Invalid input")]
         public decimal Spine { get; set; }
 
+
+        /// <summary>
+        /// Convert measurement units to requested one.
+        /// Update currentUnit value. 
+        /// </summary>
+        /// <param name="unit"></param>
         public void SetUnit(ArchieBirds.Controllers.Units unit)
         {
             ToMetric();
@@ -84,6 +90,10 @@ namespace ArchieBirds.Models
             }
         }
 
+        /// <summary>
+        /// Convert archie's parameters to metric system. 
+        /// metric is used by default to store in database.
+        /// </summary>
         public void ToMetric()
         {
             switch (currentUnit)
@@ -101,6 +111,9 @@ namespace ArchieBirds.Models
             currentUnit = ArchieBirds.Controllers.Units.Metric;
         }
         
+        /// <summary>
+        /// Convert inches to cm, lb to kg.
+        /// </summary>
         private void ImperialToMetric()
         {
             // in -> cm
@@ -112,6 +125,11 @@ namespace ArchieBirds.Models
             // lb -> kg
             Weight = Weight * 0.45359237m;
         }
+
+        /// <summary>
+        /// Convert mops to cm.
+        /// Special unit milliarchieops (mops) are the equivalent of 1/7th of an inch.
+        /// </summary>
         private void MilliopsToMetric()
         {
             // mops -> cm
@@ -124,6 +142,9 @@ namespace ArchieBirds.Models
             Weight = Weight * 0.45359237m;
         }
         
+        /// <summary>
+        /// Convert inches to centimeters, kg to lb.
+        /// </summary>
         private void MetricToImperial()
         {
             // cm -> in
@@ -135,6 +156,11 @@ namespace ArchieBirds.Models
             // kg -> lb
             Weight = Weight / 0.45359237m;
         }
+
+        /// <summary>
+        /// Convert cm to mops.
+        /// Special unit milliarchieops are the equivalent of 1/7th of an inch.
+        /// </summary>
         private void MetricToMilliops()
         {
             Height = (Height / 2.54m) / 7.0m;
