@@ -10,13 +10,6 @@ using ArchieBirds.Models;
 
 namespace ArchieBirds.Controllers
 {
-    public enum Units
-    {
-        Milliarchieops,
-        Metric,
-        Imperial,
-    }
-
     public enum FormData
     {
         Unit,

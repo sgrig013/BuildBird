@@ -10,7 +10,6 @@ namespace ArchieBirds.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ArchieBirds.Models.ArchiesDBContext";
         }
 
         protected override void Seed(ArchieBirds.Models.ArchiesDBContext context)

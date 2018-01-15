@@ -33,33 +33,33 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                @if (@ViewBag.Unit != ArchieBirds.Controllers.Units.Metric)
+                                @if (@ViewBag.Unit != ArchieBirds.Models.Units.Metric)
                                 {
-                                    <li><a href="#" onclick="selectUnit(this.innerHTML); return false;">@Html.Raw(ArchieBirds.Controllers.Units.Metric)</a></li>
+                                    <li><a href="#" onclick="selectUnit(this.innerHTML); return false;">@Html.Raw(ArchieBirds.Models.Units.Metric)</a></li>
                                 }
-                                @if (@ViewBag.Unit != ArchieBirds.Controllers.Units.Imperial)
+                                @if (@ViewBag.Unit != ArchieBirds.Models.Units.Imperial)
                                 {
-                                    <li><a href="#" onclick="selectUnit(this.innerHTML); return false;">@Html.Raw(ArchieBirds.Controllers.Units.Imperial)</a> </li>
+                                    <li><a href="#" onclick="selectUnit(this.innerHTML); return false;">@Html.Raw(ArchieBirds.Models.Units.Imperial)</a> </li>
                                 }
-                                @if (@ViewBag.Unit != ArchieBirds.Controllers.Units.Milliarchieops)
+                                @if (@ViewBag.Unit != ArchieBirds.Models.Units.Milliarchieops)
                                 {
-                                    <li class=""><a href="#" onclick="selectUnit(this.innerHTML); return false;">@Html.Raw(ArchieBirds.Controllers.Units.Milliarchieops)</a></li>
+                                    <li class=""><a href="#" onclick="selectUnit(this.innerHTML); return false;">@Html.Raw(ArchieBirds.Models.Units.Milliarchieops)</a></li>
                                 }
                             </ul>
                         </li>
                         <ul class="nav navbar-nav navbar-right">
                         <li>
-                            @if (@ViewBag.Unit == ArchieBirds.Controllers.Units.Metric)
+                            @if (@ViewBag.Unit == ArchieBirds.Models.Units.Metric)
                             {
-                                <a href="#">(Cm/Kg)</a>
+                                <a href="#">(cm/kg)</a>
                             }
-                            @if (@ViewBag.Unit == ArchieBirds.Controllers.Units.Imperial)
+                            @if (@ViewBag.Unit == ArchieBirds.Models.Units.Imperial)
                             {
-                                <a href="#">(Inch/Lb)</a>
+                                <a href="#">(inch/lb)</a>
                             }
-                            @if (@ViewBag.Unit == ArchieBirds.Controllers.Units.Milliarchieops)
+                            @if (@ViewBag.Unit == ArchieBirds.Models.Units.Milliarchieops)
                             {
-                                <a href="#">(Mops/Lb)</a>
+                                <a href="#">(Mops/lb)</a>
                             }
                          </li>
                          </ul>

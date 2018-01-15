@@ -8,30 +8,43 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ArchieBirds.Models
 {
+    public enum Units
+    {
+        Milliarchieops,
+        Metric,
+        Imperial,
+    }
+
     public class Archie
     {
         public int ID { get; set; }
         [Required(ErrorMessage="Specimen name is required and should be from 3 to 30 characters")]
         [StringLength(30, MinimumLength = 3)]
+        [Display(Name = "Specimen Name")]
         public string SpecimenName { get; set; }
 
         [Range(0, long.MaxValue)]
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
         public decimal Height { get; set; }
         [Range(0, long.MaxValue)]
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
         public decimal Weight { get; set; }
         [Range(0, long.MaxValue)]
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
         public decimal Length { get; set; }
         [Range(0, long.MaxValue)]
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
         public decimal Girth { get; set; }
         [Range(0, long.MaxValue)]
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
         public decimal WingWidth { get; set; }
         
-        [Display(Name = "Location Latitude")]
+        [Range(-90d, 90d)]
         public double Latitude { get; set; }
-        [Display(Name = "Location Longtitude")]
+        [Range(-180d, 180d)]
         public double Longtitude { get; set; }
 
-        public ArchieBirds.Controllers.Units currentUnit = ArchieBirds.Controllers.Units.Metric;
+        public Units currentUnit = Units.Metric;
 
         /// <summary>
         /// The wingspan is the sum of both wing's span plus the girth.
@@ -40,6 +53,7 @@ namespace ArchieBirds.Models
         /// If the bird's skeleton is missing both wings then we can't estimate its wingspan 
         /// and must return an appropriate value indicating this. 
         /// </summary>
+        [DisplayFormat(DataFormatString = "{0:0.00}", ApplyFormatInEditMode = true)]
         public double Wingspan
         {
             get 
@@ -56,19 +70,19 @@ namespace ArchieBirds.Models
         }
 
         [Range(0, 2, ErrorMessage = "Invalid input")]
-        public decimal Wings { get; set; }
+        public int Wings { get; set; }
         [Range(0, 2, ErrorMessage = "Invalid input")]
-        public decimal HandThings { get; set; }
+        public int HandThings { get; set; }
         [Range(0, 1, ErrorMessage = "Invalid input")]
-        public decimal Skull { get; set; }
+        public int Skull { get; set; }
         [Range(0, 300, ErrorMessage = "Invalid input")]
-        public decimal Teeth { get; set; }
+        public int Teeth { get; set; }
         [Range(0, 2, ErrorMessage = "Invalid input")]
-        public decimal Feet { get; set; }
+        public int Feet { get; set; }
         [Range(0, 1, ErrorMessage = "Invalid input")]
-        public decimal Tail { get; set; }
+        public int Tail { get; set; }
         [Range(0, 1, ErrorMessage = "Invalid input")]
-        public decimal Spine { get; set; }
+        public int Spine { get; set; }
 
 
         /// <summary>
@@ -76,15 +90,15 @@ namespace ArchieBirds.Models
         /// Update currentUnit value. 
         /// </summary>
         /// <param name="unit"></param>
-        public void SetUnit(ArchieBirds.Controllers.Units unit)
+        public void SetUnit(Units unit)
         {
             ToMetric();
             switch (unit)
             {
-                case ArchieBirds.Controllers.Units.Milliarchieops:
+                case Units.Milliarchieops:
                     MetricToMilliops();
                     break;
-                case ArchieBirds.Controllers.Units.Imperial:
+                case Units.Imperial:
                     MetricToImperial();
                     break;
             }
@@ -98,17 +112,17 @@ namespace ArchieBirds.Models
         {
             switch (currentUnit)
             {
-                case ArchieBirds.Controllers.Units.Milliarchieops:
+                case Units.Milliarchieops:
                     MilliopsToMetric();
                     break;
-                case ArchieBirds.Controllers.Units.Imperial:
+                case Units.Imperial:
                     ImperialToMetric();
                     break;
-                case ArchieBirds.Controllers.Units.Metric:
+                case Units.Metric:
                 default:
                     break;
             }
-            currentUnit = ArchieBirds.Controllers.Units.Metric;
+            currentUnit = Units.Metric;
         }
         
         /// <summary>
@@ -172,11 +186,4 @@ namespace ArchieBirds.Models
             Weight = Weight / 0.45359237m;
         }
     }
-
-
-    public class ArchiesDBContext : DbContext
-    {
-        public DbSet<Archie> Archies { get; set; }
-    }
-
 }

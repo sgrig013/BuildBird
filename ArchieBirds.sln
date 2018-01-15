@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchieBirds", "ArchieBirds\ArchieBirds.csproj", "{55048BD7-6A97-4C31-89C2-CCB90A42B214}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchieBirds.Tests", "..\..\..\Users\user\Documents\Visual Studio 2013\Projects\ArchieBirds\ArchieBirds.Tests\ArchieBirds.Tests.csproj", "{947EDCCE-DC65-4F6A-92C2-41CE166E8CF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchieBirds.Tests", "ArchieBirds.Tests\ArchieBirds.Tests.csproj", "{9127A368-461B-44F3-BF0B-DB4FCE571CAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{55048BD7-6A97-4C31-89C2-CCB90A42B214}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55048BD7-6A97-4C31-89C2-CCB90A42B214}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55048BD7-6A97-4C31-89C2-CCB90A42B214}.Release|Any CPU.Build.0 = Release|Any CPU
-		{947EDCCE-DC65-4F6A-92C2-41CE166E8CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{947EDCCE-DC65-4F6A-92C2-41CE166E8CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{947EDCCE-DC65-4F6A-92C2-41CE166E8CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{947EDCCE-DC65-4F6A-92C2-41CE166E8CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9127A368-461B-44F3-BF0B-DB4FCE571CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9127A368-461B-44F3-BF0B-DB4FCE571CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9127A368-461B-44F3-BF0B-DB4FCE571CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9127A368-461B-44F3-BF0B-DB4FCE571CAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
