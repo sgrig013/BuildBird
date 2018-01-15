@@ -1,0 +1,147 @@
+﻿@model ArchieBirds.Models.Archie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+<div>
+    <h4>
+        Archie: '@Html.DisplayFor(model => model.SpecimenName)'
+    </h4>
+    
+@if (@ViewBag.ErrorMessage != null)
+{ 
+    <div class="alert alert-warning" role="alert">@ViewBag.ErrorMessage</div>
+}
+
+    <dl class="dl-horizontal">
+@*       <dt>
+          @Html.DisplayNameFor(model => model.SpecimenName)
+      </dt>
+      <dd>
+          @Html.DisplayFor(model => model.SpecimenName)
+      </dd>
+*@
+        <dt>
+            @Html.DisplayNameFor(model => model.Height)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Girth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Girth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wingspan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wingspan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WingWidth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WingWidth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longtitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longtitude)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Wings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wings)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HandThings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HandThings)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Skull)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Skull)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Teeth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Teeth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Feet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Feet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spine)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Spine)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

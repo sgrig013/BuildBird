@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Archie Birds</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Archie Birds", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Birds", "Index", "Archies")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    @if (ViewBag.Unit != null)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                @ViewBag.Unit
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @if (@ViewBag.Unit != ArchieBirds.Controllers.Units.Metric)
+                                {
+                                    <li><a href="#" onclick="selectUnit(this.innerHTML); return false;">@Html.Raw(ArchieBirds.Controllers.Units.Metric)</a></li>
+                                }
+                                @if (@ViewBag.Unit != ArchieBirds.Controllers.Units.Imperial)
+                                {
+                                    <li><a href="#" onclick="selectUnit(this.innerHTML); return false;">@Html.Raw(ArchieBirds.Controllers.Units.Imperial)</a> </li>
+                                }
+                                @if (@ViewBag.Unit != ArchieBirds.Controllers.Units.Milliarchieops)
+                                {
+                                    <li class=""><a href="#" onclick="selectUnit(this.innerHTML); return false;">@Html.Raw(ArchieBirds.Controllers.Units.Milliarchieops)</a></li>
+                                }
+                            </ul>
+                        </li>
+                        <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @if (@ViewBag.Unit == ArchieBirds.Controllers.Units.Metric)
+                            {
+                                <a href="#">(Cm/Kg)</a>
+                            }
+                            @if (@ViewBag.Unit == ArchieBirds.Controllers.Units.Imperial)
+                            {
+                                <a href="#">(Inch/Lb)</a>
+                            }
+                            @if (@ViewBag.Unit == ArchieBirds.Controllers.Units.Milliarchieops)
+                            {
+                                <a href="#">(Mops/Lb)</a>
+                            }
+                         </li>
+                         </ul>
+                    }
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Archie Birds</p>
+        </footer>
+    </div>
+    @if (ViewBag.Unit != null)
+    {
+        <script type="text/javascript">
+        function selectUnit(name) {
+            var elements = document.UnitPreferenceForm.elements;
+            elements[0].value = name;
+            elements[1].value = document.location.pathname;
+            document.UnitPreferenceForm.submit();
+        }
+        </script>
+        <form action="/Archies/UpdateUnit" name="UnitPreferenceForm" method="post">
+            <input type="hidden" name="@Html.Raw(ArchieBirds.Controllers.FormData.Unit)" value="" />
+            <input type="hidden" name="@Html.Raw(ArchieBirds.Controllers.FormData.ReturnPath)" value="" />
+        </form>
+    }
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

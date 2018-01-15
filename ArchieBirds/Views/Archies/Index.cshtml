@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ArchieBirds.Models.Archie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Archies List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+@*    @using (Html.BeginForm())
+    {
+        <p> SpecimenName: @Html.TextBox("SearchString") <br/>
+        <input type="submit" value="Filter" /> </p>
+    } *@
+</p>
+<table class="table">
+    <tr>
+  @*      <th>
+        @Html.DisplayNameFor(model => model.Height)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Weight)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Length)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Girth)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Wingspan)
+    </th>  *@
+        <th>
+            @Html.DisplayNameFor(model => model.SpecimenName)
+        </th>
+   @*    <th>
+        @Html.DisplayNameFor(model => model.Latitude)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Longtitude)
+    </th>  *@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+     @*   <td>
+        @Html.DisplayFor(modelItem => item.Height)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Weight)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Length)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Girth)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Wingspan)
+    </td> *@
+        <td> 
+            @Html.DisplayFor(modelItem => item.SpecimenName)
+        </td>
+   @*     <td>
+            @Html.DisplayFor(modelItem => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longtitude)
+        </td> *@
+        <td>
+             @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
